@@ -2,9 +2,8 @@ import { Dialog, Box, Typography, List, ListItem, styled } from "@mui/material";
 import { qrCodeImage } from "../Constants/Data"
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-// import { useContext } from "react";
-// import { AccountContext } from "../context/accountProvider";
-// import { addUser } from '../../service/api';
+import { useContext } from "react";
+import { AccountContext } from "../Context/AccountProvider";
 
 
 const Component = styled(Box)`
@@ -52,13 +51,12 @@ const StyledLists = styled(List)`
 
 const Login = () => {
 
-    // const { setAccount } = useContext(AccountContext);  
+    const { setAccount } = useContext(AccountContext);
 
     const onLoginSuccess = async (res) => {
         const decode = jwtDecode(res.credential);
         console.log(decode)
-        // setAccount(decode);
-        // await addUser(decode);
+        setAccount(decode);
     }
 
     const onLoginErr = (res) => {
