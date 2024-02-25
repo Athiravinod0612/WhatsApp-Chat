@@ -7,18 +7,18 @@ import { AccountContext } from "../Context/AccountProvider";
 
 
 const Component = styled(Box)`
-display: flex;
-`
+    display: flex;
+`;
 
 const Container = styled(Box)`
-padding : 100px 0 100px 100px;
-`
+    padding : 100px 10px 50px 20px;
+`;
 
 const QRCode = styled('img')({
     height: 300,
     width: 300,
-    margin: '100px 0 0 80px'
-})
+    margin: '100px 50px 0 100px'
+});
 
 const dialogstyle = {
     height: "100%",
@@ -27,24 +27,27 @@ const dialogstyle = {
     maxWidth: "100%",
     minHeight: "100%",
     boxShadow: "none",
-    overflow: "hidden"
+    overflow: "hidden",
+    paddingLeft: "60px",
+
 }
 
 const Title = styled(Typography)`
-font-size: 36px;
-color: #525252;
-font-weight: 300;
-font-family: inherit;
-margin-bottom: 25px;
-`
+    font-size: 30px;
+    color: #525252;
+    font-weight: 300;
+    font-family: inherit;
+    margin-bottom: 25px;
+`;
 
 const StyledLists = styled(List)`
     & > li {
         padding:0;
-        margin-top: 15px;
-        font-size: 20px;
-        line-heighgt: 28px;
+        margin-top: 19px;
+        font-size: 18px;
+        line-height: 30px;
         color:4a4a4a;
+
     }
 `
 
@@ -74,13 +77,13 @@ const Login = () => {
                     <Title>To Use WatsApp on Your Computer</Title>
                     <StyledLists>
                         <ListItem>1. Open WatsApp on your Phone</ListItem>
-                        <ListItem>2. Tap Menu Settings and Select WatsApp Web</ListItem>
+                        <ListItem>2. Tap  Menu   Settings and Select WatsApp Web</ListItem>
                         <ListItem>3. Point Your Phone To the Screen to Capture the Code</ListItem>
                     </StyledLists>
                 </Container>
                 <Box style={{ position: 'relative' }}>
                     <QRCode src={qrCodeImage} alt="qrCodeImage" />
-                    <Box style={{ position: 'absolute', top: '50%', transform: 'translatex(70%)' }} >
+                    <Box style={{ position: 'absolute', top: '50%', transform: 'translatex(40%)' }} >
                         <GoogleLogin
                             onSuccess={onLoginSuccess}
                             onError={onLoginErr}

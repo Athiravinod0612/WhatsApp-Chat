@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Box } from "@mui/material";
 // import Header from "./Header";
@@ -8,13 +8,14 @@ import styled from "@emotion/styled";
 // import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ChatIcon from '@mui/icons-material/Chat';
 import HeaderMenu from './HeaderMenu';
+import InfoDrawer from '../../Drawer/InfoDrawer';
 
 const Component = styled(Box)`
-height:44px;
-background: #ededed;
-padding:8px 16px;
-display: flex;
-align-items: center;
+    height:44px;
+    background: #ededed;
+    padding:8px 16px;
+    display: flex;
+    align-items: center;
 `;
 
 const Img = styled("img")({
@@ -24,44 +25,44 @@ const Img = styled("img")({
 })
 
 const Warpper = styled(Box)`
-margin-left:auto;
-display:flex;
-&>*{
-    margin-left:2px;
-    padding:8px;
-    color:#000
-}&:first-child{
-    font-size:22px;
-    margin-right:8px;
-    margin-top:3px;
-}
+    margin-left:auto;
+    display:flex;
+    &>*{
+         margin-left:2px;
+         padding:8px;
+         color:#000
+    }&:first-child{
+         font-size:22px;
+         margin-right:8px;
+         margin-top:3px;
+    }
 `;
 
 
 function Header() {
 
-    const { account } = useContext(AccountContext);
-    // console.log("account:", account);
+    const [openDrawer, setOpenDrawer] = useState(false);
 
-    // Check if picture is present and has a value
-    if (account && account.picture) {
-        return (
-            <div>
-                <Component>
-                    <Img src={account.picture} alt="Dp" />
-                    <Warpper>
-                        <ChatIcon />
-                        {/* <MoreVertIcon /> */}
-                        <HeaderMenu />
-
-                    </Warpper>
-                </Component>
-            </div>
-        );
-    } else {
-        // Handle case where picture is not found
-        return <div>Account picture not found</div>;
+    const toggleDrawer = () => {
+        setOpenDrawer(true)
     }
+
+    const { account } = useContext(AccountContext);
+    return (
+        <div>
+            <Component>
+                <Img src={account.picture} alt="Dp" onClick={toggleDrawer()} />
+                <Warpper>
+                    <ChatIcon />
+                    <HeaderMenu />
+
+
+                </Warpper>
+            </Component>
+            <InfoDrawer open={openDrawer} setopen={setOpenDrawer} />
+        </div>
+    );
+
 
 }
 
