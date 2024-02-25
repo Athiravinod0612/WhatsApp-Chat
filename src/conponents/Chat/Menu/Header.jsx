@@ -40,30 +40,26 @@ const Warpper = styled(Box)`
 
 
 function Header() {
-
     const [openDrawer, setOpenDrawer] = useState(false);
 
     const toggleDrawer = () => {
-        setOpenDrawer(true)
+        setOpenDrawer(true);
     }
 
     const { account } = useContext(AccountContext);
+
     return (
         <div>
             <Component>
-                <Img src={account.picture} alt="Dp" onClick={toggleDrawer()} />
+                <Img src={account.picture} alt="Dp" onClick={toggleDrawer} />
                 <Warpper>
                     <ChatIcon />
                     <HeaderMenu />
-
-
                 </Warpper>
             </Component>
             <InfoDrawer open={openDrawer} setopen={setOpenDrawer} />
         </div>
     );
-
-
 }
 
 export default Header;
