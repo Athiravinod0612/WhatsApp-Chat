@@ -2,6 +2,8 @@ import { Box, Drawer, Typography } from '@mui/material';
 import React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import styled from '@emotion/styled';
+import Profile from './Profile';
+
 
 
 const drawerStyle = {
@@ -9,7 +11,8 @@ const drawerStyle = {
     top: 17,
     height: "95%",
     width: "28%",
-    boxShadow: "none"
+    boxShadow: "none",
+    backgroundColor: "#f0f2f5"
 }
 const Header = styled(Box)`
     background:#008069;
@@ -21,7 +24,10 @@ const Header = styled(Box)`
         padding:15px;
         font-Weight:600;
     }
+`;
 
+const Text = styled(Typography)`
+    font-size:14px
 `;
 
 const InfoDrawer = ({ open, setopen }) => {
@@ -40,10 +46,10 @@ const InfoDrawer = ({ open, setopen }) => {
         >
             <Header>
                 <ArrowBackIcon onClick={() => setopen(false)} />
-                <Typography>Profile</Typography>
+                <Text>Profile</Text>
             </Header>
             <Box>
-
+                <Profile />
             </Box>
         </Drawer>
     );

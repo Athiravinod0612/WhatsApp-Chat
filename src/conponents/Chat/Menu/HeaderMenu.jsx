@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import styled from '@emotion/styled';
 
-function HeaderMenu() {
+function HeaderMenu({ setOpenDrawer }) {
     const [open, setOpen] = useState(null)
 
     const handleClose = () => {
@@ -43,9 +43,10 @@ function HeaderMenu() {
                 <MenuOption onClick={handleClose}>Archived</MenuOption>
                 <MenuOption onClick={handleClose}>Starred message</MenuOption>
                 <MenuOption onClick={handleClose}>Settings</MenuOption>
+                <MenuOption onClick={() => { handleClose(); setOpenDrawer(true) }}>Profile</MenuOption>
                 <MenuOption onClick={handleClose}>Log out</MenuOption>
             </Menu>
-        </div>
+        </div >
     );
 }
 

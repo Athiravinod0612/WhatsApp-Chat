@@ -51,10 +51,11 @@ function Header() {
     return (
         <div>
             <Component>
-                <Img src={account.picture} alt="Dp" onClick={toggleDrawer} />
+                <Img src={account.picture} alt='Dp' onClick={toggleDrawer} />
+                {/* <Img src={account.picture} alt="Dp" onClick={toggleDrawer} /> */}
                 <Warpper>
                     <ChatIcon />
-                    <HeaderMenu />
+                    <HeaderMenu setOpenDrawer={setOpenDrawer} />
                 </Warpper>
             </Component>
             <InfoDrawer open={openDrawer} setopen={setOpenDrawer} />
