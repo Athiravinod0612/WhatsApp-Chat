@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import Header from "./Header";
 import Search from "./Search";
-
+import Conversations from "./Conversations";
 
 
 const MenuBox = () => {
@@ -9,6 +9,7 @@ const MenuBox = () => {
         <Box>
             <Header />
             <Search />
+            <Conversations />
         </Box>
     )
 }
