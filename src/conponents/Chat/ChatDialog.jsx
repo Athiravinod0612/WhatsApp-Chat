@@ -2,7 +2,10 @@ import { Dialog, Box, styled } from '@mui/material';
 import React from 'react';
 import MenuBox from './Menu/MenuBox';
 import EmptyChat from './Chat/EmptyChat';
+import ChatBox from './Chat/ChatBox';
 // import MenuBox from './Menu/menu';
+import { AccountContext } from '../Context/AccountProvider';
+import { useContext } from 'react';
 
 
 const dialogstyle = {
@@ -35,6 +38,9 @@ const RightComponent = styled(Box)`
 
 
 function ChatDialog() {
+
+    const { person } = useContext(AccountContext)
+
     return (
         <>
             <Dialog open={true}
@@ -46,7 +52,8 @@ function ChatDialog() {
                         <MenuBox />
                     </LeftComponent>
                     <RightComponent>
-                        <EmptyChat />
+
+                        {Object.keys(person).length ? <ChatBox /> : <EmptyChat />}
                     </RightComponent>
                 </Component>
             </Dialog>

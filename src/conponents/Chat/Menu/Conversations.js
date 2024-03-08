@@ -7,16 +7,16 @@ import { AccountContext } from '../../Context/AccountProvider';
 import styled from '@emotion/styled';
 
 
-const Component = styled(Box)`
-    height:81vh;
-    overflow: overlay;
-`;
+const Component = styled(Box)({
+    height: '81vh',
+    overflow: 'overlay',
+})
 
-const StyledDivider = styled(Divider)`
-    margin: 0 0 0 70px;
-    background-color: #e9edef;
-    opacity: .6
-`;
+const StyledDivider = styled(Divider)({
+    margin: ' 0 0 0 70px',
+    backgroundColor: '#e9edef',
+    opacity: .6,
+})
 
 
 function Conversations() {
